@@ -1,0 +1,15 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+*::after, *::before {
+    box-sizing: inherit;
+} 
+
+.video-container {
+    height: 100vh;
+    object-fit: cover;
+
+}
