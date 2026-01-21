@@ -92,3 +92,10 @@ body {
     color: #eaa11ac2;
 }
 
+.correct {
+    color: #008000d6;
+} 
+
+.incorrect {
+    color: #ff0000d2;
+}
