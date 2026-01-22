@@ -8,3 +8,63 @@ html {
     box-sizing: inherit;
 }
 
+body {
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items:center;
+   gap: 1.5rem;
+}
+
+.sign-board {
+    border: 2px solid #111;
+    width: 50vw;
+    height: 65vh;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px #111111a1;
+} 
+
+.sign-board-tool, .user-tool {
+    display: flex;
+    justify-content: space-between;
+    width: 50vw;
+}
+
+button {
+    width: 180px;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: all 0.3s ease-in-out;
+}
+
+button:first-child {
+    background-color:#ff0000a8;
+}
+
+button:first-child:hover {
+    background-color: #ff0000;
+} 
+
+button:nth-child(2) {
+    background-color:#008000ac;
+}
+
+button:nth-child(2):hover {
+    background-color: #008000;
+}
+
+button:last-child {
+  background-color: #d2d20acd;
+  color: #111;
+}
+
+button:last-child:hover {
+    background-color: #e6e60d;
+}
