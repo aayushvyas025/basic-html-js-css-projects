@@ -58,27 +58,69 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     typingText.querySelectorAll("span")[0].classList.add("active-words");
+    document.addEventListener("keydown", () => typingField.focus());
+    typingText.addEventListener("click", () => {
+      typingField.focus();
+    });
+  }
+
+  function initialTimer() {
+    if (timeLeft > 0) {
+      timeLeft--;
+      givenTime.textContent = timeLeft;
+      const wpmValue = Math.round(
+        ((charIndex - mistakes) / 5 / (maxTime - timeLeft)) * 60,
+      );
+      userWPM.textContent = wpmValue;
+    } else {
+      clearInterval(timer);
+    }
+  }
+
+  function resetAll() {
+    loadParagraph();
+    clearInterval(timer);
+    timeLeft = maxTime;
+    charIndex = 0;
+    mistakes = 0;
+    isTyping = false;
+    givenTime.textContent = timeLeft;
+    userCPM.textContent = 0; 
+    userMistake.textContent = 0; 
+    userWPM.textContent = 0; 
   }
 
   function initiateTyping() {
-   const characters = typingText.querySelectorAll('span'); 
-   const typedChar = typingField.value.charAt(charIndex); 
+    const characters = typingText.querySelectorAll("span");
+    const typedChar = typingField.value.charAt(charIndex);
 
-   if(charIndex < characters.length && timeLeft > 0) {
-    if(characters[charIndex].innerText === typedChar) {
-        characters[charIndex].classList.add('correct'); 
-        console.log('correct');
+    if (charIndex < characters.length && timeLeft > 0) {
+      if (!isTyping) {
+        timer = setInterval(initialTimer, 1000);
+        isTyping = true;
+      }
 
-    }else {
-        characters[charIndex].classList.add('incorrect');
-        console.log('incorrect');
-    } 
-    charIndex++; 
-   }
-  } 
+      if (characters[charIndex].innerText === typedChar) {
+        characters[charIndex].classList.add("correct");
+        console.log("correct");
+      } else {
+        mistakes++;
+        characters[charIndex].classList.add("incorrect");
+        console.log("incorrect");
+      }
+      charIndex++;
+      characters[charIndex].classList.add("active-words");
+      userMistake.textContent = mistakes;
+      userCPM.textContent = charIndex - mistakes;
+    } else {
+      clearInterval(timer);
+      typingField.value = "";
+    }
+  }
 
+  resetButton.addEventListener("click", resetAll);
 
-  typingField.addEventListener("input", initiateTyping)
+  typingField.addEventListener("input", initiateTyping);
 
   loadParagraph();
 });
