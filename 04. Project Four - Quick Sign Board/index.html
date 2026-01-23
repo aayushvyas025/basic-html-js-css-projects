@@ -7,14 +7,39 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="sign-board-tool">Sign Board Tool</div>
+    <div class="app-wrapper">
 
-    <div class="sign-board">Sign Board</div>
-
-    <div class="user-tool">
-        <button>Clear</button> 
-        <button>Save & Download</button>
-        <button>Retrieve Saved Signature </button>
+      <div class="sign-board-tool">
+        <div class="boards-tool">
+          <p>Text color Picker</p>
+          <input type="color" name="text-color" id="colorPicker" class="tools">
+        </div>
+        <div class="boards-tool">
+          <p>Background</p> 
+          <input type="color" name="board-background" id="BackgroundColor" class="tools">
+        </div>
+        <div class="boards-tool"> 
+          <p>Font Size</p> 
+          <select name="pen-size" id="penSize" class="tools" size="1">
+            <option value="5">5px</option> 
+            <option value="10">10px</option> 
+            <option value="15">15px</option>
+            <option value="20">20px</option>
+            <option value="25">25px</option>
+            <option value="30">30px</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="sign-board">
+        <canvas class="board" id="signBoard"></canvas>
+      </div>
+      
+      <div class="user-tool">
+        <button id="clearBtn">Clear</button> 
+        <button id="saveWithDownloadBtn">Save & Download</button>
+        <button id="previousStateBtn">Retrieve Saved Signature </button>
+      </div>
     </div>
 
     <script src="script.js"></script>
