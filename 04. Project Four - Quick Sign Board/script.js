@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let lastX = 0;
   let lastY = 0;
 
-  // Event Listener
+  // Boards Functionality
   colorPicker.addEventListener("change", (event) => {
     ctx.strokeStyle = event.target.value;
     ctx.fillStyle = event.target.value;
@@ -51,12 +51,43 @@ document.addEventListener("DOMContentLoaded", () => {
     isDrawing = false;
   });
 
-  boardBackground.addEventListener('change', (event) => {
-    ctx.fillStyle = event.target.value; 
-    ctx.fillRect(0,0,signBoard.width,signBoard.height);
-  }); 
+  boardBackground.addEventListener("change", (event) => {
+    ctx.fillStyle = event.target.value;
+    ctx.fillRect(0, 0, signBoard.width, signBoard.height);
+  });
 
-  penFontSize.addEventListener('change',(event) => {
-   ctx.lineWidth = event.target.value; 
-  })
+  penFontSize.addEventListener("change", (event) => {
+    ctx.lineWidth = event.target.value;
+  });
+
+  // buttons functionality
+  clearBtn.addEventListener("click", () => {
+    ctx.clearRect(0, 0, signBoard.width, signBoard.height);
+  });
+
+  saveWithDownloadBtn.addEventListener("click", () => {
+    localStorage.setItem("board-state", signBoard.toDataURL());
+
+    let signatureLink = document.createElement("a");
+    signatureLink.download = "my-signature.png";
+    signatureLink.href = signBoard.toDataURL();
+    signatureLink.click();
+  });
+
+  previousStateBtn.addEventListener("click", () => {
+    let previousState = localStorage.getItem("board-state");
+
+    if (previousState) {
+      let img = new Image();
+      img.onload = () => {
+        
+        
+        
+        ctx.clearRect(0,0, signBoard.width, signBoard.width); 
+        ctx.drawImage(img,0,0,signBoard.width, signBoard.height)
+      };
+      img.src = previousState;
+      ctx.drawImage(img, 0, 0);
+    }
+  });
 });
