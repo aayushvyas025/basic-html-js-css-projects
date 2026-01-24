@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let lastX = 0;
   let lastY = 0;
 
-
   // Event Listener
   colorPicker.addEventListener("change", (event) => {
     ctx.strokeStyle = event.target.value;
@@ -45,6 +44,19 @@ document.addEventListener("DOMContentLoaded", () => {
     lastY = position.y;
   });
 
-  signBoard.addEventListener("mouseup", () => (isDrawing = false));
-  signBoard.addEventListener("mouseleave", () => (isDrawing = false));
+  signBoard.addEventListener("mouseup", () => {
+    isDrawing = false;
+  });
+  signBoard.addEventListener("mouseleave", () => {
+    isDrawing = false;
+  });
+
+  boardBackground.addEventListener('change', (event) => {
+    ctx.fillStyle = event.target.value; 
+    ctx.fillRect(0,0,signBoard.width,signBoard.height);
+  }); 
+
+  penFontSize.addEventListener('change',(event) => {
+   ctx.lineWidth = event.target.value; 
+  })
 });
