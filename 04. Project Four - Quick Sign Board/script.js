@@ -80,11 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (previousState) {
       let img = new Image();
       img.onload = () => {
-        
-        
-        
-        ctx.clearRect(0,0, signBoard.width, signBoard.width); 
-        ctx.drawImage(img,0,0,signBoard.width, signBoard.height)
+        ctx.clearRect(0, 0, signBoard.width, signBoard.width);
+        ctx.drawImage(img, 0, 0, signBoard.width, signBoard.height);
       };
       img.src = previousState;
       ctx.drawImage(img, 0, 0);
