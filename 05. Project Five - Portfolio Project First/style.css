@@ -6,6 +6,7 @@
   --application-background:#fff;
   --primary-color:#333;
   --secondary-color:#ffa600e9;
+  --para-color:#666;
 }
 
 html {
@@ -72,3 +73,39 @@ a {
     font-size: 1.2rem;
     color: var(--primary-color);
 }
+
+
+.hero-section {
+    position: relative;
+    max-width: 800px;
+}
+
+.hero-section h2 {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+}
+
+.hero-section h2 > span {
+    color: var(--secondary-color);
+    font-size: 1.5em;
+} 
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: var(--para-color);
+    margin: 10px 0px;
+    transition: 0.5s;
+}
+
+.hero-section button {
+  border: none;
+  outline: none;
+  padding: 20px;
+  margin-inline: 10px;
+  border-radius: 8px;
+}
+
+.hero-section button:first-child {
+
+}
+
