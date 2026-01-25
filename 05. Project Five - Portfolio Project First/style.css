@@ -3,10 +3,10 @@
 :root {
   --initial-text-color: #111;
   --poppins-font-family: "Poppins", sans-serif;
-  --application-background:#fff;
-  --primary-color:#333;
-  --secondary-color:#ffa600e9;
-  --para-color:#666;
+  --application-background: #fff;
+  --primary-color: #333;
+  --secondary-color: #ffa600e9;
+  --para-color: #666;
 }
 
 html {
@@ -31,81 +31,137 @@ body {
   min-height: 100vh;
   padding: 100px;
   background-color: var(--application-background);
-  transition:0.5s;
+  transition: 0.5s;
 }
- 
+
 .portfolio-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    padding: 20px 100px;
-    justify-content: space-between;
-    align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  padding: 20px 100px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 a {
   text-decoration: none;
-} 
-
-.portfolio-logo  a {
-    color:var(--primary-color);
-    font-size: 2rem;
-    font-weight: 600;
-    transition: 0.5s;
 }
 
-.portfolio-logo  a > span {
-    color: var(--secondary-color);
-    font-size: 2em;
-} 
+.portfolio-logo a {
+  color: var(--primary-color);
+  font-size: 2rem;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.portfolio-logo a > span {
+  color: var(--secondary-color);
+  font-size: 2em;
+}
 
 .portfolio-header .navbar ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    transition: 0.5s;
-} 
-
-.navbar ul > li {
-    font-size: 1.2rem;
-    color: var(--primary-color);
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  transition: 0.5s;
 }
 
+.navbar ul > li {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
 
 .hero-section {
-    position: relative;
-    max-width: 800px;
+  position: relative;
+  max-width: 800px;
 }
 
 .hero-section h2 {
-    font-size: 3.5rem;
-    color: var(--primary-color);
+  font-size: 3.5rem;
+  color: var(--primary-color);
 }
 
 .hero-section h2 > span {
-    color: var(--secondary-color);
-    font-size: 1.5em;
-} 
+  color: var(--secondary-color);
+  font-size: 1.5em;
+}
 
 .hero-section p {
-    font-size: 1.2rem;
-    color: var(--para-color);
-    margin: 10px 0px;
-    transition: 0.5s;
+  font-size: 1.2rem;
+  color: var(--para-color);
+  margin: 10px 0px;
+  transition: 0.5s;
 }
 
 .hero-section button {
   border: none;
   outline: none;
   padding: 20px;
+  font-size: 14px;
   margin-inline: 10px;
   border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
-.hero-section button:first-child {
-
+.hero-section > button:first-of-type {
+  background-color: var(--secondary-color);
+  color: var(--application-background);
 }
 
+.hero-section > button:last-of-type {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+}
+
+.dark-theme {
+  position: absolute;
+  border: 1px solid var(--initial-text-color);
+  bottom: 25px;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  font-size: 1.8rem;
+  padding: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-theme:hover {
+  background-color: #c5c0c088;
+}
+
+.dark-theme ion-icon:nth-child(2),
+body.night .dark-theme ion-icon:nth-of-type(1) {
+  display: none;
+}
+
+body.night .dark-theme ion-icon:nth-of-type(2) {
+  display: block;
+}
+
+.night {
+  background-color: var(--initial-text-color);
+}
+
+body.night .dark-theme {
+  background-color: var(--application-background);
+}
+
+body.night .portfolio-header,
+body.night .portfolio-logo a,
+body.night .navbar ul li > a ,
+body.night .hero-section,
+body.night .hero-section h2,
+body.night .hero-section button:nth-of-type(2) {
+  color: var(--application-background);
+}
